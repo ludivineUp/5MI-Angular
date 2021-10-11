@@ -73,7 +73,7 @@ const makeAllCaps = (array) => {
 } 
 
 makeAllCaps(arrayOfWords)
-  .then(sortWords)
+  .then(sortWords) // implicite le fait que sortWords prend en param arrayOfWord
   .then((result) => console.log(result))
   .catch(error => console.log(error))
   
