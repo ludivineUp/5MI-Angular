@@ -28,8 +28,7 @@ function printSquare(sideLength: number) {
         for (let i = 0; i < sideLength; i++) {
             console.log("i du second for " + i );
             line += '*';
-        }
-
+        }// le i de cette boucle est effacé de la mémoire
         console.log(line);
     }
 }
