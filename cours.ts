@@ -158,7 +158,7 @@ console.log(func(1,2));
 func = (a,b) => a+b;
 console.log(func(1,2));
 
-// visibilté/scope : public, private, defaut
+// visibilté/scope : public, private, defaut, protected
 // Bonne pratique : interface QUE DES METHODES
 interface Vehicule{
 	nbRoues: number;	// attributs des interface ne sont pas des attributs de classe
@@ -169,12 +169,15 @@ class Voiture implements Vehicule{
 	marque: string;
 	couleur: string;
 	nbRoues: number;
+	// static = mémoire de la classe, et pas celle de l'objet
+	static nbVehicule : number = 0;
 
 	constructor(marque:string, couleur: string, nbRoues: number){
 		// this est obligatoire pour les attributs
 		this.marque = marque;
 		this.couleur = couleur;
 		this.nbRoues = nbRoues;
+		Voiture.nbVehicule ++;
 	}
 
 	public foo() : string{
@@ -186,6 +189,8 @@ class Voiture implements Vehicule{
 		console.log("private");
 	}
 }
+
+// Potected à éviter dan la majorité des langages (mauvaise implémentation donc dangeureux pour la cohésion de code)
 
 let cocci : Voiture = new Voiture("vw", "coccinelle", 4);
 cocci.foo();
@@ -212,7 +217,8 @@ class Bus extends Voiture{
 
 let bus : Bus = new Bus("vw", "coccinelle", 4, 120);
 console.log(bus.foo());
-
+console.log("static " +  Voiture.nbVehicule);
+console.log("static " +  bus.nbVehicule);
 
 
 
