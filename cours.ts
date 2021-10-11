@@ -230,8 +230,81 @@ let double = tab.map(element => element*element);
 console.log(double);
 // filter tab => tab
 let pair = tab.filter(element => element % 2 == 0);
-console.log(pair)
+console.log(pair);
 
+
+// Alias de type
+type NullablestringArray = Array<string|null>
+let newTab : NullablestringArray = [];
+newTab.push("azerty");
+newTab.push(null);
+//newTab.push(12);
+
+// Généricité, syntax diamond
+// & = union de type
+// réfléxivité de code hasOwnProperty vérifié que l'objet a déjà un attribut de ce nom
+function extend<T,U>(param1 : T, param2: U) : T & U{
+	let res = <T & U>{};
+	for(let id in param1){
+		(<any>res)[id] = (<any>param1)[id];
+	}
+	for(let id in param2){
+		if(!res.hasOwnProperty(id)){
+			(<any>res)[id] = (<any>param2)[id];
+		}
+	}
+	return res;
+}
+let obj1 = {id: 1, zoro: true, taille: 8};
+let obj2 = {id: 1, tornado: true, taille: 8};
+console.log(extend(obj1,obj2));
+
+
+class Shape {
+    description: string;
+}
+interface IVisual {
+    draw(): void;
+}
+class ConsoleVisual implements IVisual {
+    draw() {
+        console.log(`Drawing ${this["description"]}`);
+    }
+}
+class Square extends Shape{} // héritage simple
+
+const circle: Shape = { description: "Circle" };
+const visualCircle = extend(circle, new ConsoleVisual());
+visualCircle.draw();
+
+// Enchainer les méthodes comme map réduce filtrer avec ses objets
+// Tips = la méthode doit renvoyer this pour pourvoir appeler dessus une autre méthode
+class DeferredQuery<T> {
+    protected operations: string[] = [];
+
+    constructor(private items: T[]) { }
+    filter(f: (x: T) => boolean): this {
+        this.operations.push('filter');
+        return this;
+    }
+
+    execute() {
+        console.log(this.operations);
+    }
+}
+
+class ExtendedDeferredQuery<T> extends DeferredQuery<T> {
+    project(f: (x: T) => T): this {
+        this.operations.push('project');
+        return this;
+    }
+}
+
+new ExtendedDeferredQuery([1, 2, 3])
+    .filter(i => i < 0)
+    .project(i => i * 2)
+    .filter(i => i < 3)
+    .execute();
 
 
 
