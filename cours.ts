@@ -3,6 +3,8 @@
 // tsc cours.ts pour compiler et générer le cours.js
 // node cours.js pour exécuter le code généré du ts
 
+// nodemon cours.ts
+
 // langage typé mais facultatif
 // ; obligatoires en fin d'instruction
 let n : number = 1;	
@@ -218,9 +220,17 @@ class Bus extends Voiture{
 let bus : Bus = new Bus("vw", "coccinelle", 4, 120);
 console.log(bus.foo());
 console.log("static " +  Voiture.nbVehicule);
-console.log("static " +  bus.nbVehicule);
-
-
+ 
+tab = [1,2,3,4,5,6]
+// reduce tab => élément
+let somme = tab.reduce((sortie, element) => sortie += element);
+console.log(somme);
+// map tab => tab
+let double = tab.map(element => element*element);
+console.log(double);
+// filter tab => tab
+let pair = tab.filter(element => element % 2 == 0);
+console.log(pair)
 
 
 
