@@ -1,0 +1,2 @@
+pas de NgStyle à faire pour l'affichages des poneys en couleur
+2 formulaires de raes à faire : un "normal" et un "réactive"
