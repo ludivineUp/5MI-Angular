@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PoniesComponent } from './ponies-component/ponies-component';
+import { PonyDetailsComponent } from './pony-details/pony-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PoniesComponent
+    PoniesComponent,
+    PonyDetailsComponent
   ],
   imports: [
     BrowserModule
