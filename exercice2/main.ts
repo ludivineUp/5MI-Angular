@@ -64,7 +64,7 @@ const appDiv: HTMLElement = document.getElementById('app');
 let htmlCode : string = `<h1>Exercice TypeScript</h1>`;
 
 htmlCode += '<h2>Somme des âges</h2>';
-let ages : Array<number> = users.reduce(e => e.age);
+let ages : Array<number> = users.map(e => e.age);
 htmlCode += '<p>'+String(ages.reduce((e,a) => a += e))+'</p>';
  
 htmlCode += '<h2>Listes des noms</h2>';
