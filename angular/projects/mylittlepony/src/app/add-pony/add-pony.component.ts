@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PONIES } from '../mock/mock-ponies';
 import { Pony } from '../pony';
 
@@ -11,7 +12,7 @@ export class AddPonyComponent implements OnInit {
 
   pony: Pony;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.pony = new Pony(0,"","",0);
   }
 
@@ -21,6 +22,7 @@ export class AddPonyComponent implements OnInit {
 
   onSubmit(): void{
     PONIES.push(this.pony);
+    this.router.navigate(['/'])
   }
 
 }

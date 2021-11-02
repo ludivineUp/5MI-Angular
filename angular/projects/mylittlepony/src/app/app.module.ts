@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,7 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { AddPonyComponent } from './add-pony/add-pony.component';
 
 const ROUTES : Routes = [
-  {path: '', component: PoniesComponent}
+  {path: '', component: PoniesComponent},
+  {path: 'add-pony', component: AddPonyComponent}
 ];
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ const ROUTES : Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
