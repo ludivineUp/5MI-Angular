@@ -3,7 +3,9 @@ import { Pony } from '../pony';
 
 @Component({
   selector: 'pony-details',
-  templateUrl: './pony-details.component.html',
+  template: `
+<div>{{pony.name}} {{pony.color}} {{pony.age}}</div>
+`,
   // pas de fichier css lié
   styleUrls: []
 })
