@@ -8,6 +8,7 @@ import { PoniesComponent } from './ponies-component/ponies-component';
 import { PonyDetailsComponent } from './pony-details/pony-details.component';
 import { NameRacePipe } from './name-race.pipe';
 import { MenuComponent } from './menu/menu.component';
+import { AddPonyComponent } from './add-pony/add-pony.component';
 
 const ROUTES : Routes = [
   {path: '', component: PoniesComponent}
@@ -18,7 +19,8 @@ const ROUTES : Routes = [
     PoniesComponent,
     PonyDetailsComponent,
     NameRacePipe,
-    MenuComponent
+    MenuComponent,
+    AddPonyComponent
   ],
   imports: [
     BrowserModule,
