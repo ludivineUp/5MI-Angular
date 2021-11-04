@@ -1,0 +1,16 @@
+<h2>Ajouter un poney</h2>
+<form [formGroup]="ponyForm" (ngSubmit)="onSubmit()">
+    <label>Nom</label>
+    <input type="text" id="name" name="name" formControlName="name" />
+    <br/>
+
+    <label>Couleur</label>
+    <input type="text" id="color" formControlName="color" name="color" />
+
+    <br/>
+
+    <label>Age</label>
+    <input type="text" id="age" name="age" formControlName="age" />
+
+    <button type="submit">Enregistrer</button>
+</form>

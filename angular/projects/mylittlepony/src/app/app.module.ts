@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,10 +11,12 @@ import { PonyDetailsComponent } from './pony-details/pony-details.component';
 import { NameRacePipe } from './name-race.pipe';
 import { MenuComponent } from './menu/menu.component';
 import { AddPonyComponent } from './add-pony/add-pony.component';
+import { AddPonyReactiveComponent } from './add-pony-reactive/add-pony-reactive.component';
 
 const ROUTES : Routes = [
   {path: '', component: PoniesComponent},
-  {path: 'add-pony', component: AddPonyComponent}
+  {path: 'add-pony', component: AddPonyComponent},
+  {path: 'add-pony2', component: AddPonyReactiveComponent}
 ];
 @NgModule({
   declarations: [
@@ -22,12 +25,14 @@ const ROUTES : Routes = [
     PonyDetailsComponent,
     NameRacePipe,
     MenuComponent,
-    AddPonyComponent
+    AddPonyComponent,
+    AddPonyReactiveComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
