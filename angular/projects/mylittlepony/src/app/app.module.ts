@@ -15,10 +15,11 @@ import { MenuComponent } from './menu/menu.component';
 import { AddPonyComponent } from './add-pony/add-pony.component';
 import { AddPonyReactiveComponent } from './add-pony-reactive/add-pony-reactive.component';
 import { PonyService } from './pony.service';
+import { ConnexionGuardGuard } from './connexion-guard.guard';
 
 const ROUTES : Routes = [
   {path: '', component: PoniesComponent},
-  {path: 'add-pony', component: AddPonyComponent},
+  {path: 'add-pony', component: AddPonyComponent, canActivate : [ConnexionGuardGuard]},
   {path: 'add-pony2', component: AddPonyReactiveComponent}
 ];
 @NgModule({
