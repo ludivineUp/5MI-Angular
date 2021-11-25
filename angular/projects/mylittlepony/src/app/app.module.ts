@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { NameRacePipe } from './name-race.pipe';
 import { MenuComponent } from './menu/menu.component';
 import { AddPonyComponent } from './add-pony/add-pony.component';
 import { AddPonyReactiveComponent } from './add-pony-reactive/add-pony-reactive.component';
+import { PonyService } from './pony.service';
 
 const ROUTES : Routes = [
   {path: '', component: PoniesComponent},
@@ -32,9 +35,12 @@ const ROUTES : Routes = [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PonyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
