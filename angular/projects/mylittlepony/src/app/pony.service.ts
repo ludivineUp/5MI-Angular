@@ -18,14 +18,12 @@ export class PonyService {
   constructor(private http: HttpClient) { }
 
   getAllPonies(): Observable<Array<Pony>>{
-    console.log("service");
     return this.http.get<Array<Pony>>(this.url+'pony-get.php', this.httpsOption);
   }
   getPony(id: number): Observable<Pony>{
-    console.log("service");
     return this.http.get<Pony>(this.url+'pony-get-id.php/'+id, this.httpsOption);
   }
   addPony(p: Pony): void{
-    this.http.post<Pony>(this.url + '/pony-add.php', p, this.httpsOption).subscribe();
+    this.http.post<Pony>(this.url + 'pony-add.php', p, this.httpsOption).subscribe();
   }
 }
