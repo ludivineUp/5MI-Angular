@@ -15,11 +15,26 @@ import { MenuComponent } from './menu/menu.component';
 import { AddPonyComponent } from './add-pony/add-pony.component';
 import { AddPonyReactiveComponent } from './add-pony-reactive/add-pony-reactive.component';
 import { PonyService } from './pony.service';
+import { AddRaceComponent } from './add-race/add-race.component';
+import { RacesComponent } from './races/races.component';
+import { RacesDetailsComponent } from './races-details/races-details.component';
+import {MultiSelectModule} from "primeng/multiselect";
+import {PickListModule} from "primeng/picklist";
+import { ConnexionComponent } from './connexion/connexion.component';
+import {AuthguardGuard} from "./authguard.guard";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const ROUTES : Routes = [
   {path: '', component: PoniesComponent},
   {path: 'add-pony', component: AddPonyComponent},
-  {path: 'add-pony2', component: AddPonyReactiveComponent}
+  {path: 'add-pony/:id', component: AddPonyComponent},
+  {path: 'add-pony2', component: AddPonyReactiveComponent},
+  {path: 'add-race', component: AddRaceComponent,canActivate:[AuthguardGuard]},
+  {path: 'get-race', component: RacesComponent},
+  {path: 'connexion', component: ConnexionComponent},
+  { path: '**', pathMatch: 'full',
+    component: PageNotFoundComponent },
+
 ];
 @NgModule({
   declarations: [
@@ -29,14 +44,21 @@ const ROUTES : Routes = [
     NameRacePipe,
     MenuComponent,
     AddPonyComponent,
-    AddPonyReactiveComponent
+    AddPonyReactiveComponent,
+    AddRaceComponent,
+    RacesComponent,
+    RacesDetailsComponent,
+    ConnexionComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MultiSelectModule,
+    PickListModule
   ],
   providers: [
     PonyService

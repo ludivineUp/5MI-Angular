@@ -1,0 +1,10 @@
+a {
+  color: white !important;
+}
+a:hover {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+* {
+  overflow-x: hidden !important;
+}

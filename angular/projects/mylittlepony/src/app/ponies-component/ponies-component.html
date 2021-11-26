@@ -1,7 +1,13 @@
 <h2> Liste des poneys</h2>
-<ul>
-    <li *ngFor="let p of ponies; let i = index">
-        Indice = {{i}} -
+<div *ngIf="loader == false" class="row">
+    <div *ngFor="let p of ponies; let i = index" class="col-3">
         <pony-details [pony]=p></pony-details>
-    </li>
-</ul>
+    </div>
+
+</div>
+<div *ngIf="loader == true" class="row" style="min-height: 300px">
+<div  class="spinner-border text-warning" style="margin:auto;width:5rem !important;height:5rem !important;" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+

@@ -1,0 +1,13 @@
+<h2> Liste des courses</h2>
+
+<div class="row">
+  <div *ngFor="let r of races; let i = index" class="col-3">
+    <race-details [race]=r></race-details>
+  </div>
+
+</div>
+<div *ngIf="loader == true" class="row" style="min-height: 300px">
+  <div  class="spinner-border text-warning" style="margin:auto;width:5rem !important;height:5rem !important;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

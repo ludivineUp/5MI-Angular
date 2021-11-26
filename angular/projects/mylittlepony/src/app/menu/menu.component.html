@@ -1,5 +1,10 @@
-<nav>
+<nav class="navbar navbar-dark bg-dark">
+  <img src="https://lemondederomy.net/img/cms/my-little-pony-clipart-logo-20.png" alt="" width="100">
     <a routerLink="">Poneys</a>
     <a routerLink="add-pony">Ajouter un poney</a>
     <a routerLink="add-pony2">Ajouter un poney bis</a>
+    <a routerLink="add-race">Ajouter une course</a>
+    <a routerLink="get-race">Courses</a>
+    <a routerLink="connexion" *ngIf="connected != true">Connexion</a>
+    <a (click)="disconnect()" *ngIf="connected == true">Deconnexion</a>
 </nav>

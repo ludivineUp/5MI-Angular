@@ -1,0 +1,34 @@
+<h2 class="text-center">Ajouter un poney</h2>
+<div class="container">
+<div class="row">
+  <div class="col"></div>
+<form (ngSubmit)="onSubmit()" class="col-10">
+  <div class="form-row">
+    <div class="col-6">
+  <label for="location">Localisation</label>
+  <input type="text" class="form-control" id="location" name="location" [(ngModel)]="race.location" />
+    </div>
+
+<div class="col-6">
+  <label for="date">Date</label>
+  <input type="date" class="form-control" id="date" [(ngModel)]="race.date" name="date" />
+</div>
+  </div>
+  <br/>
+  <p-pickList [source]="ponies" [target]="selectedPonies" [dragdrop]="true" [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}">
+    <ng-template let-poni pTemplate="item">
+      <div>
+        <img src="https://cdn-0.generatormix.com/images/little-pony/soarin'.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+
+        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{poni.name}} - {{poni.color}} - {{poni.age}}</div>
+      </div>
+    </ng-template>
+  </p-pickList>
+
+
+  <button type="submit" class="btn btn-primary mb-2 mt-2" >Enregistrer</button>
+</form>
+  <div class="col"></div>
+
+</div>
+</div>
